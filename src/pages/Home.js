@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Homestyle from './HomeStyle.css'
-import { Table, Button, Modal, Form } from 'react-bootstrap';
+import { Button, Modal, Form } from 'react-bootstrap';
 import EmployeeTable from './EmployeeTable';
 import DeletedEmployeeTable from './DeletedEmployeeTable';
 import AddEmployeeModal from './AddEmployeeModal';
-
+import Table from './Table.css';
 
 const Home =() => {
   const [employees, setEmployees] = useState([]);
@@ -100,6 +100,9 @@ const Home =() => {
     const result = employees.find(emp => emp.id === searchQuery);
     setSearchResult(result);
   };
+  const filteredEmployees = employees.filter(employee =>
+    employee.id.toLowerCase().includes(searchQuery.toLowerCase())
+  );
   return (
     <>
     <div className="HomeNavBar">
@@ -124,34 +127,47 @@ const Home =() => {
     </div>
     <div className="MainChild">
       <div className="TopBar">
+      <div className="container">
       <div className="search-container">
         <input
           type="text"
           placeholder="Search by Employee ID"
           value={searchQuery}
           onChange={handleSearchChange}
+          className="form-control mt-3 mb-3"
         />
-        <button onClick={handleSearch} className="btn btn-secondary">
-          Search
-        </button>
       </div>
-      
-      {searchResult && (
-        <div className="search-result">
-          <h3>Search Result:</h3>
-          <p>ID: {searchResult.id}</p>
-          <p>First Name: {searchResult.firstName}</p>
-          <p>Last Name: {searchResult.lastName}</p>
-          <p>Email: {searchResult.email}</p>
-          <p>Position: {searchResult.position}</p>
-        </div>
-      )}
+      </div>
       </div>
       <div className="MiddleBar">
       
+
+
       <div className="container">
+
+      <EmployeeTable employees={filteredEmployees} handleEdit={handleEdit} handleDelete={handleDelete} />
+      <AddEmployeeModal
+        show={show}
+        handleClose={handleClose}
+        handleChange={handleChange}
+        handleAdd={handleAdd}
+        handleUpdate={handleUpdate}
+        isEdit={isEdit}
+        currentEmployee={currentEmployee}
+      />
+    </div>
+
+
+
+
+
+
+
+
+      <div className="container">
+      
      
-      <EmployeeTable employees={employees} handleEdit={handleEdit} handleDelete={handleDelete} />
+      {/* <EmployeeTable employees={employees} handleEdit={handleEdit} handleDelete={handleDelete} /> */}
       {/* <DeletedEmployeeTable deletedEmployees={deletedEmployees} /> */}
       <Button variant="primary" onClick={handleShow} className="mt-5">
         Add Employee
@@ -165,7 +181,8 @@ const Home =() => {
         handleUpdate={handleUpdate}
         isEdit={isEdit}
         currentEmployee={currentEmployee}
-      />
+      /> 
+
       </div>
       </div>
       </div>

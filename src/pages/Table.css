@@ -1,0 +1,20 @@
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .table-responsive table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table-responsive th, .table-responsive td {
+    padding: 0.75rem;
+    text-align: left;
+    border: 1px solid #dee2e6;
+  }
+  
+  .table-responsive img {
+    max-width: 50px;
+    height: auto;
+  }

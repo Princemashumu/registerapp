@@ -70,6 +70,29 @@
     align-items: center;
     justify-content: center;
 }
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    width: 300px;
+    margin-right: 10px;
+  }
+.container h2{
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+    text-transform:uppercase;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
 .search-result {
     margin-top: 20px;
     padding: 10px;
