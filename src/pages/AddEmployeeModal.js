@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import EmployeeData from '../components/EmployeeData';
 
 const AddEmployeeModal = ({ show, handleClose, handleChange, handleAdd, handleUpdate, isEdit, currentEmployee }) => {
   
+  const [picture, setPicture] = useState('');
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.onloadend = () => {
-      // setPicture(reader.result);
+      setPicture(reader.result);
     };
     if (file) {
       reader.readAsDataURL(file);
     }
-
-  }
+  };
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton className="modal-header">
@@ -82,15 +82,15 @@ const AddEmployeeModal = ({ show, handleClose, handleChange, handleAdd, handleUp
             <Form.Label className="form-label">Picture URL</Form.Label>
             <Form.Control
               type="file"
-              placeholder="Enter Picture URL"
-              name="picture"
-              value={currentEmployee.file}
-              onChange={handleFileChange}
+              placeholder="Picture"
+              name="picture/"
+              onChange={handleChange}
               className="form-control"
             />
           </Form.Group>
         </Form>
       </Modal.Body>
+      <br></br>
       <Modal.Footer className="modal-footer">
         <Button variant="secondary" onClick={handleClose}>
           Close

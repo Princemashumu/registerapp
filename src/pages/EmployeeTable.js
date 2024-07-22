@@ -28,7 +28,7 @@ const EmployeeTable = ({ employees, handleEdit, handleDelete }) => {
               <td data-label="Email">{employee.email}</td>
               <td data-label="Position">{employee.position}</td>
               <td data-label="Picture">
-                <img typeof='file' alt={""} width="50" />
+                <img src={employee.picture} alt={""} width="50" />
               </td>
               <td data-label="Actions">
                 <div className="btn-group">

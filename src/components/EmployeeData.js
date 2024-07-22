@@ -128,6 +128,7 @@ const EmployeeData =() => {
         />
       </div>
       <EmployeeTable employees={filteredEmployees} handleEdit={handleEdit} handleDelete={handleDelete} /> */}
+      
       <DeletedEmployeeTable deletedEmployees={deletedEmployees} />
       <AddEmployeeModal
         show={show}

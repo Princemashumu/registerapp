@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Homestyle from './HomeStyle.css'
-import { Button, Modal, Form } from 'react-bootstrap';
+import { Table, Button, Modal, Form } from 'react-bootstrap';
 import EmployeeTable from './EmployeeTable';
 import DeletedEmployeeTable from './DeletedEmployeeTable';
 import AddEmployeeModal from './AddEmployeeModal';
-import Table from './Table.css';
+// import Table from './Table.css';
 
 const Home =() => {
   const [employees, setEmployees] = useState([]);
@@ -144,8 +144,17 @@ const Home =() => {
 
 
       <div className="container">
-
+      {/* <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search by Employee ID"
+          value={searchQuery}
+          onChange={handleSearchChange}
+          className="form-control mt-3 mb-3"
+        />
+      </div> */}
       <EmployeeTable employees={filteredEmployees} handleEdit={handleEdit} handleDelete={handleDelete} />
+      {/* <DeletedEmployeeTable deletedEmployees={deletedEmployees} /> */}
       <AddEmployeeModal
         show={show}
         handleClose={handleClose}
